@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>reveal.js</title>
+
+	<link rel="stylesheet" href="dist/reset.css">
+	<link rel="stylesheet" href="dist/reveal.css">
+	<link rel="stylesheet" href="dist/theme/black.css">
+	<!-- Theme used for syntax highlighted code -->
+	<link rel="stylesheet" href="plugin/highlight/monokai.css">
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section data-markdown="" data-separator="^\n---$" data-separator-vertical="^\n>>>$">
+				<script type="text/template">
+### Webアプリ基礎入門(2)
+
+（株）ボールド 技術部 鳥海秀一
+
+---
+### 前回の振り返り
+
+---
+### Webアプリとは
+- - -
+* Webブラウザをクライアントとして利用するクライアント/サーバ型アプリケーション
+* 様々な要素技術から構成されている
+
+---
+### Webアプリの基礎を学習する意味
+- - -
+* Webアプリを作成する際に利用するフレームワークは技術の詳細を覆い隠す
+* このためWebアプリ作成中に自分たちが行なっていることの意味を理解することが難しい
+* 基礎を学習することで、それらの意味を理解できるようになり作成効率が高まる
+
+---
+### Webアプリを支える要素技術
+- - -
+* TCP/IP
+* HTTP
+* HTML
+* CSS
+* JavaScript
+
+---
+### Webアプリを学習するための道具
+- - -
+* Python
+* Curl
+* WireShark
+
+---
+### HTTPの中身を覗いてみよう
+- - -
+1. Windowsのコマンドプロンプトで下記のコマンドを実行する
+	* python -m http.server
+1. Wiresharkを起動しlookbackアダプタを選択する
+1. Wiresharkのフィルタにhttpを入力する
+1. Windowsのコマンドプロンプトで下記のコマンドを実行する
+	* curl.exe http://localhost:8000
+
+---
+### 効率的な勉強方法
+- - -
+* 二次情報を一次情報にする
+* ツールをそのための道具として使う
+
+---
+### 情報の種類
+- - -
+* 一次情報
+	* 自分が直接経験して得た情報
+	* 取得に時間と労力がいるが、忘れにくい
+* 二次情報
+	* 人から伝え聞いた情報
+	* 簡単に取得できるが、忘れやすい
+
+---
+### 前回の振り返りはここまで
+
+---
+### HTTPとは
+- - -
+* 主にHTMLドキュメントを介して情報を提供する目的で作られたプロトコル
+* 1990年に最初のバージョンが公開されて以来、発展を続けている
+	* 1990年 - HTTP/0.9
+	* 1996年 - HTTP/1.0
+	* 1997年 - HTTP/1.1
+	* 2015年 - HTTP/2.0
+
+---
+### HTMLとは
+- - -
+* ハイパーテキスト（複数の文書を関連付けた文書）を記述するためのマークアップ（指示を伝える方法の意味）言語の略
+* 欧州原子核研究機構に在籍していたティム・バーナーズ=リーがSGML をよりシンプルにして作り上げた
+* Webサーバが提供し、Webブラウザによりユーザが見やすい形に変換される
+
+---
+### Webサーバとは
+- - -
+* クライアントのリクエストに応じて、HTMLなどの情報を提供するプログラム
+* 指定されたディレクトリにindex.htmlがない場合は、ディレクトリの内容をユーザに提供する
+* Appache（アパッチ）とNginx（エンジンエックス）が有名
+
+---
+### 課題1
+- - -
+* 指定されたディレクトリにindex.htmlがあるとWebサーバはそれを提供することを確認せよ
+
+---
+### EMMETとは
+- - -
+* HTMLやCSSを素早くコーディングするために考案された記法
+* VS Codeにはあらかじめ搭載されている
+
+---
+### Webブラウザとは
+- - -
+* Webサーバに情報を要求し、受け取った情報を組み立ててユーザに提供するアプリケーション
+* 受け取った情報を元に、何度もサーバに情報を要求する
+* HTTP/1.0から1.1にすぐにバージョンが上がったのはこの仕組みをサポートするため
+
+---
+### 課題2
+- - -
+* Webブラウザが何度もサーバに情報を要求することを確認せよ
+
+---
+### HTTPの構造
+- - -
+* HTTPリクエストは、リクエスト行、ヘッダ、ボディから構成される
+* HTTPレスポンスは、ステータス行、ヘッダ、ボディから構成される
+* ヘッダとボディは空行で区切られる
+
+---
+### リクエスト行の構造
+- - -
+* リクエスト行は下記の要素から構成される
+	* メソッド
+	* URI
+	* HTTPバージョン
+* メソッドはGETとPOSTが有名
+
+---
+### ステータス行の構造
+- - -
+* ステータス行は下記の要素から構成される
+	* プロトコルバージョン
+	* ステータスコード
+	* ステータステキスト
+
+---
+### ステータスコードとは
+- - -
+* レスポンスの意味を表現する3桁の数字からなるコード
+* 3桁の数字の最初の桁の意味は次の通り
+	* 1 - 情報
+	* 2 - 成功
+	* 3 - リダイレクション
+	* 4 - クライアントエラー
+	* 5 - サーバエラー
+
+---
+### 課題3
+- - -
+* telnetプロトコルを使ってWebサーバと通信せよ
+
+---
+### まとめ
+- - -
+1. HTTPにはリクエストとレスポンスがある
+1. 両者の主な違いは１行目のリクエスト行とステータス行
+1. telnetプロトコルを使うと生のHTTPのやり取りが確認できる
+
+				</script>
+			</section>
+		</div>
+	</div>
+
+	<script src="dist/reveal.js"></script>
+	<script src="plugin/notes/notes.js"></script>
+	<script src="plugin/markdown/markdown.js"></script>
+	<script src="plugin/highlight/highlight.js"></script>
+	<script>
+		// More info about initialization & config:
+		// - https://revealjs.com/initialization/
+		// - https://revealjs.com/config/
+		Reveal.initialize({
+			hash: true,
+
+			// Learn about plugins: https://revealjs.com/plugins/
+			plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
+		});
+	</script>
+</body>
+
+</html>
