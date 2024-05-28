@@ -148,11 +148,37 @@ console.log(decodeURI(URIencode('ジャバスクリプト')))
 ```
 
 ---
+### 課題3
+- - -
+* CGIを使って、Webサーバと連携するPythonプログラムを記述せよ
+
+---
+### CGIとは
+- - -
+* ウェブサーバ上でユーザプログラムを動作させるための仕組み
+* 下記のURLを参照
+	* https://www.infraexpert.com/study/tcpip16.5.html
+
+---
+### 課題3の解答例
+- - -
+1. cgi-binフォルダを適当なフォルダの中に作成する
+1. cgi-binディレクトリの中に、下記の内容のa.pyファイルを作成する
+```pytnon
+print('Hello')
+```
+1. cgi-binフォルダの親フォルダで下記のコマンドを実行する
+	* python -m http.server --cgi
+1. Webブラウザで下記のURLを確認する
+	* http://localhost:8000/cgi-bin/a.py
+
+---
 ### まとめ
 - - -
 1. FORM要素がサーバにデータを送信する方法にはGETとPOSTがある
 1. GETはURIの一部に、POSTはボディ部の一部にデータを設定する
 1. ブラウザの開発モードを利用するとその内容を確認できる
+1. pythonで簡単にcgiサーバを起動することができる
 
 				</script>
 			</section>
