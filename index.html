@@ -137,14 +137,15 @@
 ---
 ### 課題2
 - - -
-* Webブラウザの開発モードを使用してURIエンコードとデコードを確認せよ
+* Pythonを使って、URIエンコードとデコードを確認せよ
 
 ---
 ### 課題2の解答例
 - - -
-```javascript
-console.log(encodeURI('ジャバスクリプト'))
-console.log(decodeURI(encodeURI('ジャバスクリプト')))
+```python
+import urllib.parse
+urllib.parse.quote('ジャバスクリプト')
+urllib.parse.unquote(urllib.parse.quote('ジャバスクリプト'))
 ```
 
 ---
